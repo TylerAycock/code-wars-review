@@ -158,19 +158,78 @@ function repeatStr(n, s) {
 // console.log(repeatStr(5, "#"), "#####");
 // console.log(repeatStr(2, "ha "), "ha ha ");
 
-
-
-
-// Complete the function that accepts a string parameter, and reverses each word in the string. 
+// Complete the function that accepts a string parameter, and reverses each word in the string.
 // All spaces in the string should be retained.
 
 function reverseWords(str) {
-  return str.split(" ").map(word => {
-    return word.split("").reverse().join("")
-  }).join(" ")
+  return str
+    .split(" ")
+    .map((word) => {
+      return word.split("").reverse().join("");
+    })
+    .join(" ");
 }
 
-console.log(reverseWords('The quick brown fox jumps over the lazy dog.'), 'ehT kciuq nworb xof spmuj revo eht yzal .god');
-console.log(reverseWords('apple'), 'elppa');
-console.log(reverseWords('a b c d'), 'a b c d');
-console.log(reverseWords('double  spaced  words'), 'elbuod  decaps  sdrow');
+// console.log(reverseWords('The quick brown fox jumps over the lazy dog.'), 'ehT kciuq nworb xof spmuj revo eht yzal .god');
+// console.log(reverseWords('apple'), 'elppa');
+// console.log(reverseWords('a b c d'), 'a b c d');
+// console.log(reverseWords('double  spaced  words'), 'elbuod  decaps  sdrow');
+
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+function maskify(cc) {
+  if (cc.length < 4) {
+    return cc;
+  } else {
+    let mask = cc.slice(0, cc.length - 4);
+    return mask
+      .split("")
+      .map((num) => {
+        return (num = "#");
+      })
+      .join("")
+      .concat(cc.slice(cc.length - 4));
+  }
+}
+
+// console.log(maskify("4556364607935616"), "############5616");
+// console.log(maskify("1"), "1");
+// console.log(maskify("11111"), "#1111");
+
+// Given two integers a and b, which can be positive or negative,
+// find the sum of all the integers between and including them and return it.
+// If the two numbers are equal return a or b.
+
+const getSum = (a, b) => {
+  let arr = [];
+  let small = Math.min(a, b);
+  let large = Math.max(a, b);
+  for (let i = small; i <= large; i++) {
+    arr.push(i);
+  }
+  return arr.reduce((acc, cur) => {
+    return acc + cur;
+  });
+};
+
+// console.log(getSum(0, -1), -1);
+// console.log(getSum(0, 1), 1);
+// console.log(getSum(2, 2), 2);
+
+// Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime'
+
+function divisors(integer) {
+  let arr = [];
+
+  for (let i = 2; i < integer; i++) {
+    if (integer % i === 0) {
+      arr.push(i);
+    }
+  }
+
+  return arr.length ? arr : `${integer} is prime`;
+}
+
+// console.log(divisors(15), [3, 5]);
+// console.log(divisors(12), [2, 3, 4, 6]);
+// console.log(divisors(13), "13 is prime");
