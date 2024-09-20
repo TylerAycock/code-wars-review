@@ -120,16 +120,57 @@ function greet(language) {
   return salutation;
 }
 
-const greetings = (language)=>{
-   for(let i = 0; i<greeting.length; i++){
-      if(greeting[i][0] === language){
-         return greeting[i][1]
-      }
-   }
-   return 'Welcome'
-}
+const greetings = (language) => {
+  for (let i = 0; i < greeting.length; i++) {
+    if (greeting[i][0] === language) {
+      return greeting[i][1];
+    }
+  }
+  return "Welcome";
+};
 
-console.log(greet("spanish")); //'Welcome', "Your function should have returned 'Welcome'. Try again."
+//console.log(greet("english")); //'Welcome', "Your function should have returned 'Welcome'. Try again."
 // console.log(greet('dutch'), 'Welkom', "Your function should have returned 'Welkom'. Try again.");
 // console.log(greet('IP_ADDRESS_INVALID'), 'Welcome', "Your function should have returned 'Welcome'. Try again.");
 
+// Write a function that accepts an integer n and a string s as parameters,
+//  and returns a string of s repeated exactly n times.
+
+function repeatStr(n, s) {
+  // let arr = [];
+  // for (let i = 0; i < n; i++) {
+  //   arr.push(s);
+  // }
+
+  // return arr.join("");
+
+  // let answer = "";
+
+  // for (let i = 0; i < n; i++) {
+  //   answer = answer + s;
+  // }
+  // return answer;
+
+  return s.repeat(n);
+}
+
+// console.log(repeatStr(3, "*"), "***");
+// console.log(repeatStr(5, "#"), "#####");
+// console.log(repeatStr(2, "ha "), "ha ha ");
+
+
+
+
+// Complete the function that accepts a string parameter, and reverses each word in the string. 
+// All spaces in the string should be retained.
+
+function reverseWords(str) {
+  return str.split(" ").map(word => {
+    return word.split("").reverse().join("")
+  }).join(" ")
+}
+
+console.log(reverseWords('The quick brown fox jumps over the lazy dog.'), 'ehT kciuq nworb xof spmuj revo eht yzal .god');
+console.log(reverseWords('apple'), 'elppa');
+console.log(reverseWords('a b c d'), 'a b c d');
+console.log(reverseWords('double  spaced  words'), 'elbuod  decaps  sdrow');
