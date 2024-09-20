@@ -233,3 +233,45 @@ function divisors(integer) {
 // console.log(divisors(15), [3, 5]);
 // console.log(divisors(12), [2, 3, 4, 6]);
 // console.log(divisors(13), "13 is prime");
+
+
+
+// Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+
+var number=function(array){
+  return array.map((item,index)=>{
+    return `${index+1}: ${item}`
+  })
+}
+
+// console.log(number([]), [], 'Empty array should return empty array');
+// console.log(number(["a", "b", "c"]), ["1: a", "2: b", "3: c"], 'Return the correct line numbers');
+
+
+function openOrSenior(data){
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open')
+}
+
+// console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]]),['Open', 'Senior', 'Open', 'Senior'])
+// console.log(openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]]),['Open', 'Open', 'Open', 'Open'])
+// console.log(openOrSenior([[59, 12],[55,-1],[12, -2],[12, 12]]),['Senior', 'Open', 'Open', 'Open'])
+
+
+
+
+// Given an array of integers, remove the smallest value. Do not mutate the original array/list.
+// If there are multiple elements with the same value, remove the one with the lowest index. 
+// If you get an empty array/list, return an empty array/list.
+// Don't change the order of the elements that are left.
+
+function removeSmallest(numbers) {
+  let index = numbers.indexOf(Math.min(...numbers))
+  return [...numbers.slice(0, index), ...numbers.slice(index + 1)]
+}
+
+//  console.log(removeSmallest([1,2,3,4,5]), [2,3,4,5])
+//  [5,3,2,1,4], [5,3,2,4]
+ console.log(removeSmallest([2,2,1,2,1]), [2,2,2,1])
