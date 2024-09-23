@@ -312,14 +312,14 @@ function disemvowel(str) {
 // console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"), "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
 // console.log(disemvowel("What are you, a communist?"), "Wht r y,  cmmnst?")
 
-
-// Given a non-empty array of integers, return the result of multiplying the values together in order. 
+// Given a non-empty array of integers, return the result of multiplying the values together in order.
 // Example: [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
 
-function grow(x){
-  return x.reduce((acc,cur) => acc*cur)
+function grow(x) {
+  return x.reduce((acc, cur) => acc * cur);
 }
 
-console.log(grow([1, 2, 3]), 6);
-console.log(grow([4, 1, 1, 1, 4]), 16); 
-console.log(grow([2, 2, 2, 2, 2, 2]), 64); 
+// console.log(grow([1, 2, 3]), 6);
+// console.log(grow([4, 1, 1, 1, 4]), 16);
+// console.log(grow([2, 2, 2, 2, 2, 2]), 64);
+
