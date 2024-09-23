@@ -234,44 +234,92 @@ function divisors(integer) {
 // console.log(divisors(12), [2, 3, 4, 6]);
 // console.log(divisors(13), "13 is prime");
 
-
-
 // Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
 // Write a function which takes a list of strings and returns each line prepended by the correct number.
 // The numbering starts at 1. The format is n: string. Notice the colon and space in between.
 
-
-var number=function(array){
-  return array.map((item,index)=>{
-    return `${index+1}: ${item}`
-  })
-}
+var number = function (array) {
+  return array.map((item, index) => {
+    return `${index + 1}: ${item}`;
+  });
+};
 
 // console.log(number([]), [], 'Empty array should return empty array');
 // console.log(number(["a", "b", "c"]), ["1: a", "2: b", "3: c"], 'Return the correct line numbers');
 
-
-function openOrSenior(data){
-  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open')
+function openOrSenior(data) {
+  return data.map(([age, handicap]) =>
+    age > 54 && handicap > 7 ? "Senior" : "Open"
+  );
 }
 
 // console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]]),['Open', 'Senior', 'Open', 'Senior'])
 // console.log(openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]]),['Open', 'Open', 'Open', 'Open'])
 // console.log(openOrSenior([[59, 12],[55,-1],[12, -2],[12, 12]]),['Senior', 'Open', 'Open', 'Open'])
 
-
-
-
 // Given an array of integers, remove the smallest value. Do not mutate the original array/list.
-// If there are multiple elements with the same value, remove the one with the lowest index. 
+// If there are multiple elements with the same value, remove the one with the lowest index.
 // If you get an empty array/list, return an empty array/list.
 // Don't change the order of the elements that are left.
 
 function removeSmallest(numbers) {
-  let index = numbers.indexOf(Math.min(...numbers))
-  return [...numbers.slice(0, index), ...numbers.slice(index + 1)]
+  let index = numbers.indexOf(Math.min(...numbers));
+  return [...numbers.slice(0, index), ...numbers.slice(index + 1)];
 }
 
-//  console.log(removeSmallest([1,2,3,4,5]), [2,3,4,5])
-//  [5,3,2,1,4], [5,3,2,4]
- console.log(removeSmallest([2,2,1,2,1]), [2,2,2,1])
+// console.log(removeSmallest([2, 2, 1, 2, 1]), [2, 2, 2, 1]);
+
+// Return the number (count) of vowels in the given string.
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  let vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+
+  str.split("").forEach((letter) => {
+    vowels.includes(letter) && count++;
+  });
+
+  return count;
+}
+
+// console.log(getCount("abracadabra"), 5);
+
+// You receive an array with your peers' test scores. Now calculate the average and compare your score!
+// Return true if you're better, else false!
+
+function betterThanAverage(classPoints, yourPoints) {
+  let totalScores = classPoints.reduce((acc, cur) => acc + cur) + yourPoints;
+  let average = totalScores / (classPoints.length + 1);
+  return yourPoints > average;
+}
+
+// console.log(betterThanAverage([2, 3], 5), true);
+// console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75), true);
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+function disemvowel(str) {
+  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  return str
+    .split("")
+    .filter((word) => !vowels.includes(word))
+    .join("");
+}
+
+// console.log(disemvowel("This website is for losers LOL!"), "Ths wbst s fr lsrs LL!")
+// console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"), "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+// console.log(disemvowel("What are you, a communist?"), "Wht r y,  cmmnst?")
+
+
+// Given a non-empty array of integers, return the result of multiplying the values together in order. 
+// Example: [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+function grow(x){
+  return x.reduce((acc,cur) => acc*cur)
+}
+
+console.log(grow([1, 2, 3]), 6);
+console.log(grow([4, 1, 1, 1, 4]), 16); 
+console.log(grow([2, 2, 2, 2, 2, 2]), 64); 
