@@ -323,3 +323,77 @@ function grow(x) {
 // console.log(grow([4, 1, 1, 1, 4]), 16);
 // console.log(grow([2, 2, 2, 2, 2, 2]), 64);
 
+// Make a function that can take any non-negative integer as an argument
+// and return it with its digits in descending order. Essentially,
+// rearrange the digits to create the highest possible number.
+
+function descendingOrder(n) {
+  return +n
+    .toString()
+    .split("")
+    .sort((a, b) => b - a)
+    .join("");
+}
+
+// console.log(descendingOrder(15), 51);
+
+// Create a function to  square every digit of a number and concatenate them
+// The function accepts an integer and returns an integer.
+
+function squareDigits(num) {
+  return +String(num)
+    .split("")
+    .map((num) => +num * +num)
+    .join("");
+}
+
+// console.log(squareDigits(3212), 9414);
+
+// given a string of space separated numbers, create a function that returns the highest and lowest number
+
+function highAndLow(numbers) {
+  let arr = numbers
+    .split(" ")
+    .map((num) => +num)
+    .sort((a, b) => b - a);
+
+  return `${arr[0]} ${arr[arr.length - 1]}`;
+}
+
+// console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9");
+
+// Create a function that checks to see if a string has the same amount of 'x's and 'o's.
+// The method must return a boolean and be case insensitive. The string can contain any char.
+
+function XO(str) {
+  let total = 0;
+  str
+    .toLowerCase()
+    .split("")
+    .forEach((letter) => {
+      letter == "x" && total++;
+      letter == "o" && total--;
+    });
+  return total == 0;
+}
+
+// console.log(XO("xo"), true);
+// console.log(XO("xxOo"), true);
+// console.log(XO("xxxm"), false);
+
+// Create a function that when given a word returns the middle character of the word.
+// If the word's length is odd, return the middle character.
+// If the word's length is even, return the middle 2 characters.
+
+function getMiddle(s) {
+  let arr = s.split("");
+  if (arr.length % 2 == 0) {
+    return arr.slice(arr.length / 2 - 1, arr.length / 2 + 1).join("");
+  } else {
+    return arr.slice(arr.length / 2, arr.length / 2 + 1).join("");
+  }
+}
+
+// console.log(getMiddle("test"), "es");
+// console.log(getMiddle("testing"), "t");
+// console.log(getMiddle("middle"), "dd");
