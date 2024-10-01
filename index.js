@@ -397,3 +397,88 @@ function getMiddle(s) {
 // console.log(getMiddle("test"), "es");
 // console.log(getMiddle("testing"), "t");
 // console.log(getMiddle("middle"), "dd");
+
+//creating a callback function examples
+
+// example one
+
+function outerFn(callback) {
+  console.log(callback());
+}
+
+outerFn(() => "Fancy pants string");
+
+// example two
+
+const createAdder = (x) => {
+  return (y) => {
+    return x + y;
+  };
+};
+
+let addFive = createAdder(5);
+let addTen = createAdder(10);
+
+// console.log(addFive(12))
+
+// end examples
+
+// Create a function that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+
+function solution(str, ending) {
+  return str.slice(str.length - ending.length) == ending;
+}
+
+// console.log(solution("abcde", "cde"), true);
+// console.log(solution("abcde", "abc"), false);
+
+// Create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+function filter_list(arr) {
+  let update = [];
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] == +arr[i] && update.push(arr[i]);
+  }
+
+  return update;
+}
+
+// console.log(filter_list([1, 2, "a", "b"]), [1, 2], 'For input [1,2,"a","b"]');
+// console.log(filter_list([1, "a", "b", 0, 15]),[1, 0, 15],'For input [1,"a","b",0,15]'
+// );
+// console.log( filter_list([1, 2, "aasf", "1", "123", 123]),[1, 2, 123],'For input [1,2,"aasf","1","123",123]'
+// );
+
+// Create a function that converts a strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them (capitalizing every word).
+
+toJadenCase = function (str) {
+  return str
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+};
+
+// console.log(
+//   toJadenCase("How can mirrors be real if our eyes aren't real"),
+//   "How Can Mirrors Be Real If Our Eyes Aren't Real"
+// );
+
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+// Additionally, if the number is negative, return 0.
+// Note: If the number is a multiple of both 3 and 5, only count it once.
+
+function solution(n) {
+  let sum = 0;
+
+  for (let i = 1; i < n; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+
+console.log(solution(10), 23);
